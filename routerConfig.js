@@ -1,6 +1,5 @@
 import ListComponent from './ListComponent.js';
 import LoginComponent from './LoginComponent.js';
-import store from './store/index.js';
 
 export default {
     'login': {
