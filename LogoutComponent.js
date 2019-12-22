@@ -1,7 +1,7 @@
 import Component from './component.js';
 import store from './store/index.js';
 import link from './link.js';
-import routerConfig from './routerConfig.js';
+import config from './routerConfig.js';
 
 export default class LogoutComponent extends Component {
     constructor(anchor, settings) {
@@ -20,7 +20,7 @@ export default class LogoutComponent extends Component {
         this.anchor.appendChild(logoutButton);
         logoutButton.addEventListener('click', () => {
             store.dispatch('logout');
-            link(routerConfig.list.settings.redirect);
+            link(config.list.settings.redirect);
         });
     }
 
