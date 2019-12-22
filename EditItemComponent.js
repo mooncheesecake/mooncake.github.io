@@ -4,31 +4,45 @@ export default class EditItemComponent {
     constructor(anchor, settings) {
         this.anchor = anchor;
         this.settings = settings;
-        console.log('edit input created');
     }
 
     render() {
+        this.createEditInput();
+        this.createSaveButton();
+		this.anchor.appendChild(this.editInput);
+        this.anchor.appendChild(this.saveButton);
+        this.addSaveHandler();
+        this.anchor.addEventListener('click', this.stopPropagationFunction);
+    }
+
+    createEditInput() {
         const editInput = document.createElement('input');
-        const editButton = document.createElement('span');
-        const fragment = document.createDocumentFragment();
         editInput.classList.add('input');
         editInput.value = this.settings.text;
         editInput.focus();
-        editButton.classList.add('button');
-        editButton.innerText = 'Save';
-        editButton.addEventListener('click', (event) => {
+        this.editInput = editInput;
+    }
+
+    createSaveButton() {
+        const saveButton = document.createElement('span');
+        saveButton.classList.add('button');
+        saveButton.innerText = 'Save';
+        this.saveButton = saveButton;
+    }
+
+    stopPropagationFunction(event) {
+        // Предотвращает изменение состояния todo, пока не будет закончено редактирование
+        event.stopImmediatePropagation();
+    }
+
+    addSaveHandler() {
+        this.saveButton.addEventListener('click', (event) => {
+            // Поиск нужного todo
             const collection = Array.prototype.slice.call(event.target.parentElement.parentElement.children);
             const id = collection.indexOf(event.target.parentElement);
             this.anchor.removeEventListener('click', this.preventDefaultFunction);
-            backend.updateItem({ id, text: editInput.value, type: 'changeText' });
+            backend.updateItem({ id, text: this.editInput.value, type: 'changeText' });
         });
-		fragment.appendChild(editInput);
-        fragment.appendChild(editButton);
-        this.anchor.appendChild(fragment);
-        this.anchor.addEventListener('click', this.preventDefaultFunction);
-    }
 
-    preventDefaultFunction(event) {
-        event.stopImmediatePropagation();
     }
 }

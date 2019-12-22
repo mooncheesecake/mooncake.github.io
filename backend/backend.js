@@ -87,6 +87,7 @@ export default class Backend {
     }
 
     updateItem(item) {
+        // updateItem принимает значение с 2 разных событий - изменение текста и изменение состояния
         const updatedTodo = this.store.state.todo[item.id];
         const id = updatedTodo._id;
         const todo = { text: updatedTodo.text, completed: updatedTodo.completed };

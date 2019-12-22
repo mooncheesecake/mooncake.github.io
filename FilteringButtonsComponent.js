@@ -7,7 +7,7 @@ export default class FilteringButtonsComponent extends Component {
         super(store,anchor);
         const fragment = document.createDocumentFragment();
         this.createFilteringButtons();
-        this.addHandlers();
+        this.addFilterHandlers();
         this.filteringButtons.forEach(({ button, mode }) => {
             fragment.appendChild(button);
         });
@@ -49,9 +49,10 @@ export default class FilteringButtonsComponent extends Component {
         });
     }
 
-    addHandlers() {
+    addFilterHandlers() {
         this.filteringButtons.forEach(({ button, mode }) => {
             button.addEventListener('click', () => {
+                // Позволяет включать и выключать фильтры (если выключены все - включен ALL фильтр)
                 if (!button.classList.contains('active-filter')) {
                     store.dispatch('showFilteredList', { mode });
                     this.resetStyle(this.filteringButtons, mode);

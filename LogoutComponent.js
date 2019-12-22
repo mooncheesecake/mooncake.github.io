@@ -5,26 +5,30 @@ import { LOGIN } from './constants.js';
 
 export default class LogoutComponent extends Component {
     constructor(anchor, settings) {
-        super(
-            store,
-            anchor
-        );
-        const logoutButton = document.createElement('div');
-        const logoutText = document.createElement('span');
-        const logoutIcon = document.createElement('i');
-        logoutText.innerText = 'Logout ';
-        logoutButton.classList.add('button', 'logout-button');
-        logoutIcon.classList.add('fas', 'fa-door-open');
-        logoutButton.appendChild(logoutText);
-        logoutButton.appendChild(logoutIcon);
-        this.anchor.appendChild(logoutButton);
-        logoutButton.addEventListener('click', () => {
-            store.dispatch('logout');
-            link(LOGIN);
-        });
+        super(store, anchor);
+        this.createLogoutButton();
+        this.anchor.appendChild(this.logoutButton);
+        this.addHandler();
     }
 
     render() {
-        console.log('status component render');
+    }
+
+    createLogoutButton() {
+        this.logoutButton = document.createElement('div');
+        const logoutText = document.createElement('span');
+        const logoutIcon = document.createElement('i');
+        logoutText.innerText = 'Logout ';
+        this.logoutButton.classList.add('button', 'logout-button');
+        logoutIcon.classList.add('fas', 'fa-door-open');
+        this.logoutButton.appendChild(logoutText);
+        this.logoutButton.appendChild(logoutIcon);
+    }
+
+    addHandler() {
+        this.logoutButton.addEventListener('click', () => {
+            store.dispatch('logout');
+            link(LOGIN);
+        });
     }
 }

@@ -12,10 +12,6 @@ export default function createReducer() {
         }),
         removeItem: (payload, state) => {
             const removedTodo = state.todo.find(item => item._id === payload.id);
-            // if (editableTodo) {
-            //     const editableTodoId = state.todo.indexOf(editableTodo);
-            //     payload.id = (editableTodoId === payload.id) || (editableTodoId < payload.id) ? payload.id + 1 : payload.id;
-            // }
             const id = state.todo.indexOf(removedTodo);
             return ({
                 ...state,
@@ -26,6 +22,7 @@ export default function createReducer() {
             })
         },
         editItem: (payload, state) => {
+            // editItem помечает todo, вместо которого нужно отобразить поле с инпутом
             const editableTodo = state.todo.find(item => item.isEdit === true);
             if (editableTodo) {
                 const editableTodoId = state.todo.indexOf(editableTodo);

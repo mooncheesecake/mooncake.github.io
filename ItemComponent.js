@@ -4,7 +4,6 @@ export default class ItemComponent {
     constructor(anchor, settings) {
         this.anchor = anchor;
         this.settings = settings;
-        console.log('li created');
     }
 
     createCloseButton() {
@@ -51,6 +50,7 @@ export default class ItemComponent {
                 liDom.classList.remove('checked');
             }
         } else {
+            // Если этот todo помечен, то создается инпут для редактирования
             const editInput = new EditItemComponent(liDom, this.settings);
             editInput.render();
         }

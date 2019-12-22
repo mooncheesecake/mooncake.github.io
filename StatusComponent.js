@@ -22,7 +22,6 @@ export default class StatusComponent extends Component {
     }
 
     render() {
-        console.log('status component render');
         this.statusElements.all.element.innerText = `All todo's count: ${store.state.todo.length}`;
         this.statusElements.done.element.innerText = `Done todo's count: ${store.state.todo.filter(todo => todo.completed).length}`;
         this.statusElements.undone.element.innerText = `Undone todo's count: ${store.state.todo.filter(todo => !todo.completed).length}`;

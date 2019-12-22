@@ -63,7 +63,6 @@ ul li .todo {
     padding-left: 25px;
 }
 
-/* Set all odd list items to a different color (zebra-stripes) */
 ul li:nth-child(odd) {
     background: #4f544e;
 }
@@ -78,7 +77,6 @@ ul li.checked {
     text-decoration: line-through;
 }
 
-/* Add a "checked" mark when clicked on */
 ul li.checked::before {
     content: '';
     border-color: #fff;
@@ -104,7 +102,6 @@ ul li.checked .todo {
     justify-content: center;
 }
 
-/* Style the close button */
 .close {
     color: #002C19;
     padding: 20px;
@@ -128,7 +125,6 @@ ul li.checked .todo {
     opacity: 1;
 }
 
-/* Style the header */
 .header {
     margin-top: 10px;
     background-color: #28806c;
@@ -161,7 +157,6 @@ ul li.checked .todo {
     padding: 0px 0px 0px 10px;
 }
 
-/* Clear floats after the header */
 .header:after {
     content: "";
     display: table;
@@ -212,7 +207,6 @@ ul li.checked .todo {
     margin-top: 5px;
     margin-right: 5px;
 }
-
 
 body {
     margin: 0;

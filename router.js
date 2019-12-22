@@ -17,8 +17,6 @@ export default class Router {
             this.component.onDestroy();
         }
 
-        // window.history.pushState(conf.data, '', conf.url);
-
         this.component = new conf.component(this.anchor, conf.settings);
 
         this.component.render();
