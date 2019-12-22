@@ -1,0 +1,212 @@
+.hide {
+    display: none;
+}
+.main, .sidebar {
+    background-color: #F5FFFE;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px 18px;
+}
+
+.head, .status-item, .empty-list {
+    background-color: #1D7373;
+}
+
+.status-item, .empty-list {
+    padding: 10px 10px 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: #C9FFF4;
+    font-size: 16px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 0px 0px 0px 25px;
+    background: #36D792;
+    font-size: 18px;
+    transition: 0.2s;
+    user-select: none;
+    list-style-type: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+ul li .todo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control-buttons {
+    display: flex;
+}
+
+.todo-text {
+    padding-left: 25px;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+    background: #7BE9B9;
+}
+
+ul li:hover {
+    background: #299F6C;
+}
+
+ul li.checked {
+    background: #007241;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    height: 20px;
+    width: 10px;
+    z-index: 2;
+}
+
+ul li.checked .todo {
+    margin-left: -10px;
+}
+
+.filter-block span.active-filter {
+    background-color: #E07F00;
+    color: black;
+}
+
+.empty-list {
+    display: flex;
+    justify-content: center;
+}
+
+/* Style the close button */
+.close {
+    color: #002C19;
+    padding: 20px;
+    text-shadow: none;
+    border-radius: 0 10px 10px 0;
+    z-index: 2;
+    opacity: 1;
+}
+
+.close:hover, .edit:hover {
+    background-color: #E07F00;
+    color: white;
+    opacity: 1;
+}
+
+.edit {
+    color: #002C19;
+    padding: 12px 20px 12px 20px;
+    font-size: 1.5rem;
+    z-index: 2;
+    opacity: 1;
+}
+
+/* Style the header */
+.header {
+    margin-top: 10px;
+    background-color: #598F78;
+    padding: 20px 40px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px 10px 2px 2px;
+}
+
+.autorization-block {
+    border-radius: 10px;
+}
+
+.label {
+    margin-top: 20px;
+    min-width: 120px;
+}
+
+.input-block {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.filter-block {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    padding: 0px 0px 0px 10px;
+}
+
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.input {
+    border: none;
+    border-radius: 10px;
+    flex-grow: 6;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #F5FFFE;
+    max-width: 413px;
+    margin: 11px 20px 11px 10px;
+}
+
+.button {
+    padding: 10px;
+    border-radius: 10px;
+    background: #299F6C;
+    color: #C9FFF4;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px 10px 10px 0px;
+    max-width: 111px;
+}
+
+.button:hover {
+    background-color: #218359;
+}
+
+.login-button {
+    max-width: 120px;
+    margin: 10px auto;
+}
+
+.logout-block {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.logout-button {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+
+body {
+    margin: 0;
+    background-color: white;
+}
