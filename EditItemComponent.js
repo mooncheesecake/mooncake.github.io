@@ -26,7 +26,6 @@ export default class EditItemComponent {
         fragment.appendChild(editButton);
         this.anchor.appendChild(fragment);
         this.anchor.addEventListener('click', this.preventDefaultFunction);
-        return fragment;
     }
 
     preventDefaultFunction(event) {

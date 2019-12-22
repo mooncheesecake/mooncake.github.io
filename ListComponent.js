@@ -4,7 +4,7 @@ import ItemComponent from './ItemComponent.js';
 import FilteringButtonsComponent from './FilteringButtonsComponent.js';
 import StatusComponent from './StatusComponent.js';
 import LogoutComponent from './LogoutComponent.js';
-import { DEFAULT, DONE, UNDONE } from './constants.js';
+import { DEFAULT, DONE, UNDONE, ENTER_CODE } from './constants.js';
 import backend from './backend/index.js';
 import localStorage from './local-storage/index.js';
 
@@ -14,7 +14,6 @@ export default class ListComponent extends Component {
             backend.checkAuthorization();
         }
         backend.getItems();
-        const ENTER_CODE = 13;
         const header = document.createElement('div');
         const inputBlock = document.createElement('div');
 		const input = document.createElement('input');
@@ -135,7 +134,7 @@ export default class ListComponent extends Component {
 
         this.anchor.querySelectorAll('li').forEach((li, id) => {
             li.addEventListener('click', (event) => {
-                if (event.target.tagName === 'LI' || event.target === li.firstChild.firstChild) {
+                if (event.target.tagName === 'LI' || event.target === li.firstChild.firstChild  || event.target === li.firstChild) {
                     backend.updateItem({ id, type: 'changeState' });
                 }
             });

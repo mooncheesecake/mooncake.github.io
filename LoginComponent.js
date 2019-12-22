@@ -55,6 +55,13 @@ export default class LoginComponent extends Component {
 
             backend.login(loginData);
         });
+        this.removeSideElements();
+    }
+
+    render() {
+    }
+
+    removeSideElements() {
         const sidebar = document.querySelector('.sidebar'); 
         if (sidebar) {
             app.parentElement.removeChild(sidebar);
@@ -63,9 +70,5 @@ export default class LoginComponent extends Component {
         if (logout) {
             document.querySelector('.head').removeChild(logout);
         }
-    }
-
-    render() {
-        console.log('login render');
     }
 }
