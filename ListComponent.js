@@ -153,7 +153,10 @@ export default class ListComponent extends Component {
         this.anchor.querySelectorAll('.close').forEach((button, id) => {
             button.addEventListener('click', (event) => {
                 // Поиск нужного todo для удаления
-                const parrentLi = event.target.parentElement.parentElement.parentElement;
+                let parrentLi = event.target.parentElement.parentElement.parentElement;
+                if (event.target.tagName === 'I') {
+                    parrentLi = parrentLi.parentElement;
+                }
                 const collection = Array.prototype.slice.call(parrentLi.parentElement.children);
                 const id = collection.indexOf(parrentLi);
                 backend.deleteItem({ id });
